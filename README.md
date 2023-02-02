@@ -5,7 +5,25 @@ Simplify the process of creating web clients based on the interface of an extern
 
 This project allows you to build clients without creating additional configurations and beans
 
+
+## How to
+
+Only two steps are required:
+1. Enable Exchange Client using annotation **@EnableExchangeClients** on any configuration class
+2. Annotate interface with **@ExchangeClient**
+
 ## Examples
+
+### Enable exchange client
+```java
+@SpringBootApplication
+@EnableExchangeClients
+public class ExchangeClientTestApplication {
+	public static void main(String[] args) {
+		SpringApplication.run(ExchangeClientTestApplication.class, args);
+	}
+}
+```
 
 ### Annotation based client
 ```java
