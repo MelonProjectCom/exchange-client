@@ -7,7 +7,6 @@ import com.melonproject.exchangeclient.annotation.ExchangeClient;
 import com.melonproject.exchangeclient.config.ExchangeClientProperties;
 import com.melonproject.exchangeclient.utils.ClientConfigUtil;
 import org.reflections.Reflections;
-import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
