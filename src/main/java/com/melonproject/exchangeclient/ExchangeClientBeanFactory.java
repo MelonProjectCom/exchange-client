@@ -7,6 +7,7 @@ import com.melonproject.exchangeclient.annotation.ExchangeClient;
 import com.melonproject.exchangeclient.config.ExchangeClientProperties;
 import com.melonproject.exchangeclient.utils.ClientConfigUtil;
 import org.reflections.Reflections;
+import org.reflections.util.ConfigurationBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
@@ -46,7 +47,7 @@ public class ExchangeClientBeanFactory {
         Set<String> packages = getPackages(applicationContext);
 
         packages.forEach(basePackage -> {
-                    Reflections reflections = new Reflections(basePackage);
+                    Reflections reflections = new Reflections(new ConfigurationBuilder().forPackages(basePackage));
                     Set<Class<?>> typesAnnotatedWith = reflections.getTypesAnnotatedWith(ExchangeClient.class);
                     logger.trace("Found Annotated classes: {}", typesAnnotatedWith);
                     registerExchangeClients(typesAnnotatedWith, applicationContext, factory, properties);
